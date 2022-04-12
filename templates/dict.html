@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block title %}Dictionary{% endblock %}
+{% block content %}
+<h1 align="center">Welcome to view dictionary page</h1>
+    <br />
+    <table class="table table-bordered table-hover table-striped table-condensed">
+    <tr style="background-color: blue; color: white;">
+        <th>Car Attributes</th> <th>Show Value</th>
+    </tr>
+    {% for x, y in passinfo.items(): %}
+    <tr>
+    <td>{% print(x)    %}</td>    <td>{% print(y)    %}</td>
+    </tr>
+    {% endfor %}
+    </table>
+ 
+{% endblock %}
