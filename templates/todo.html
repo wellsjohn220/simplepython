@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %}Todo List{% endblock %}
+{% block content %}
+<div id="wrap">
+    <H1>Task Master</H1>
+    {% if tasks|length < 1 %}
+        <h4>No Task in the input box, please entry data below!</h4>
+    {% else %}
+    <table id="customers">
+        <tr>
+            <th id="taskcolumn">Task Description</th> <th>Added At</th> <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td style="width: 400px;">{{ task.content }}</td>  <td>{{ task.date_created.date() }}</td>  
+            <td>
+                <a href="/delete/{{ task.id }}">Delete</a>&nbsp; <a href="/update/{{ task.id }}">Update</a>
+            </td>       
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <br />
+    <form action="/todo" method="POST">
+        <input type="text" name="content" id="content" style="width: 67%;">
+        <input type="submit" value="Add Task">
+    </form>
+    </div>
+
+{% endblock %}
